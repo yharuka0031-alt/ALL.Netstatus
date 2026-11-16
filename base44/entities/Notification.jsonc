@@ -1,0 +1,75 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "dedupeKey": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "incident",
+        "update",
+        "recovery",
+        "maintenance",
+        "notice",
+        "important"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "green",
+        "yellow",
+        "blue",
+        "purple"
+      ]
+    },
+    "relatedIncidentId": {
+      "type": "string"
+    },
+    "relatedGameIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "officialUrl": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "isRead": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

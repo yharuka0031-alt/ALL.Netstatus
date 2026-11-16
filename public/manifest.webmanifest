@@ -1,0 +1,40 @@
+{
+  "name": "ALL.Net STATUS",
+  "short_name": "ALL.Net STATUS",
+  "description": "アーケードゲームのネットワーク障害・メンテナンス・復旧情報を公式情報から集約する非公式サービスです。",
+  "lang": "ja",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#F4F8FA",
+  "theme_color": "#16A6C4",
+  "categories": ["utilities", "news"],
+  "icons": [
+    {
+      "src": "https://media.base44.com/images/public/6aeae324628c120a71908eb2/55cdd2351_generated_image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "ゲーセン行く前チェック", "short_name": "行く前チェック", "url": "/arcade-check" },
+    { "name": "障害情報", "short_name": "障害情報", "url": "/incidents" },
+    { "name": "お気に入り", "short_name": "お気に入り", "url": "/favorites" }
+  ]
+}

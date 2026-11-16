@@ -1,0 +1,95 @@
+{
+  "name": "StatusRecord",
+  "type": "object",
+  "properties": {
+    "targetType": {
+      "type": "string",
+      "enum": [
+        "global",
+        "game",
+        "manufacturer"
+      ],
+      "enumColors": [
+        "blue",
+        "green",
+        "purple"
+      ]
+    },
+    "targetId": {
+      "type": "string"
+    },
+    "targetName": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "INCIDENT",
+        "MAINTENANCE",
+        "RECOVERED",
+        "UNKNOWN"
+      ],
+      "enumColors": [
+        "green",
+        "red",
+        "yellow",
+        "blue",
+        "gray"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL",
+        "STORE",
+        "USER",
+        "UNVERIFIED"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "yellow",
+        "gray"
+      ],
+      "default": "OFFICIAL"
+    },
+    "lastCheckedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastChangedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "stale": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "targetType",
+    "status"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

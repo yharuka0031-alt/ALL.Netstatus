@@ -1,0 +1,115 @@
+{
+  "name": "DataSource",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string",
+      "enum": [
+        "SEGA",
+        "\u30d0\u30f3\u30c0\u30a4\u30ca\u30e0\u30b3",
+        "\u305d\u306e\u4ed6"
+      ],
+      "enumColors": [
+        "blue",
+        "pink",
+        "gray"
+      ]
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "official_html",
+        "official_api",
+        "rss",
+        "social"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "purple",
+        "pink"
+      ],
+      "default": "official_html"
+    },
+    "parserType": {
+      "type": "string",
+      "enum": [
+        "banasupport",
+        "generic_html",
+        "rss",
+        "manual"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "purple",
+        "gray"
+      ],
+      "default": "generic_html"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "type": "number",
+      "default": 1
+    },
+    "note": {
+      "type": "string"
+    },
+    "lastFetchAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastSuccessAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastHttpStatus": {
+      "type": "number"
+    },
+    "lastError": {
+      "type": "string"
+    },
+    "lastWarning": {
+      "type": "string"
+    },
+    "articleCount": {
+      "type": "number",
+      "default": 0
+    },
+    "failureCount": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "url"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

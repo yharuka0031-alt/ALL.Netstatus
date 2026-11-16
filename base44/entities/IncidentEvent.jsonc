@@ -1,0 +1,93 @@
+{
+  "name": "IncidentEvent",
+  "type": "object",
+  "properties": {
+    "incidentId": {
+      "type": "string"
+    },
+    "at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "atPrecision": {
+      "type": "string",
+      "enum": [
+        "datetime",
+        "date",
+        "unknown"
+      ],
+      "enumColors": [
+        "green",
+        "yellow",
+        "gray"
+      ],
+      "default": "date"
+    },
+    "title": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "detected",
+        "update",
+        "maintenance_start",
+        "maintenance_end",
+        "recovery",
+        "notice"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "yellow",
+        "green",
+        "green",
+        "blue"
+      ]
+    },
+    "sourceUrl": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL",
+        "STORE",
+        "USER",
+        "UNVERIFIED"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "yellow",
+        "gray"
+      ],
+      "default": "OFFICIAL"
+    }
+  },
+  "required": [
+    "incidentId",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

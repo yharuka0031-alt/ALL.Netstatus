@@ -1,0 +1,63 @@
+{
+  "name": "StatusHistory",
+  "type": "object",
+  "properties": {
+    "targetType": {
+      "type": "string",
+      "enum": [
+        "global",
+        "game",
+        "manufacturer"
+      ],
+      "enumColors": [
+        "blue",
+        "green",
+        "purple"
+      ]
+    },
+    "targetId": {
+      "type": "string"
+    },
+    "targetName": {
+      "type": "string"
+    },
+    "previousStatus": {
+      "type": "string"
+    },
+    "newStatus": {
+      "type": "string"
+    },
+    "changedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "targetType",
+    "newStatus"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

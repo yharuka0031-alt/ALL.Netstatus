@@ -1,0 +1,72 @@
+{
+  "name": "FetchLog",
+  "type": "object",
+  "properties": {
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceName": {
+      "type": "string"
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "httpStatus": {
+      "type": "number"
+    },
+    "fetchedCount": {
+      "type": "number",
+      "default": 0
+    },
+    "newCount": {
+      "type": "number",
+      "default": 0
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string",
+      "enum": [
+        "launch",
+        "manual",
+        "admin"
+      ],
+      "enumColors": [
+        "blue",
+        "green",
+        "purple"
+      ],
+      "default": "launch"
+    }
+  },
+  "required": [
+    "sourceId"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

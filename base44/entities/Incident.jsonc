@@ -1,0 +1,129 @@
+{
+  "name": "Incident",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "affectedServices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "affectedGameIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "INCIDENT",
+        "MAINTENANCE",
+        "RECOVERED",
+        "UNKNOWN"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "green",
+        "gray"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "gray"
+      ],
+      "default": "medium"
+    },
+    "detectedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAtPrecision": {
+      "type": "string",
+      "enum": [
+        "datetime",
+        "date",
+        "unknown"
+      ],
+      "enumColors": [
+        "green",
+        "yellow",
+        "gray"
+      ],
+      "default": "date"
+    },
+    "recoveredAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "announcementId": {
+      "type": "string"
+    },
+    "officialUrl": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL",
+        "STORE",
+        "USER",
+        "UNVERIFIED"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "yellow",
+        "gray"
+      ],
+      "default": "OFFICIAL"
+    },
+    "adminNote": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "status"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

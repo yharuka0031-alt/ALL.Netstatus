@@ -1,0 +1,137 @@
+{
+  "name": "OfficialAnnouncement",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "bodySummary": {
+      "type": "string"
+    },
+    "originalUrl": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceName": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "official_html",
+        "official_api",
+        "rss",
+        "social"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "purple",
+        "pink"
+      ]
+    },
+    "manufacturer": {
+      "type": "string",
+      "enum": [
+        "SEGA",
+        "\u30d0\u30f3\u30c0\u30a4\u30ca\u30e0\u30b3",
+        "\u305d\u306e\u4ed6"
+      ],
+      "enumColors": [
+        "blue",
+        "pink",
+        "gray"
+      ]
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAtPrecision": {
+      "type": "string",
+      "enum": [
+        "datetime",
+        "date",
+        "unknown"
+      ],
+      "enumColors": [
+        "green",
+        "yellow",
+        "gray"
+      ],
+      "default": "date"
+    },
+    "fetchedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastVerifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "incident",
+        "maintenance",
+        "recovery",
+        "notice"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "green",
+        "blue"
+      ]
+    },
+    "relatedGameIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL",
+        "STORE",
+        "USER",
+        "UNVERIFIED"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "yellow",
+        "gray"
+      ],
+      "default": "OFFICIAL"
+    }
+  },
+  "required": [
+    "title",
+    "originalUrl"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

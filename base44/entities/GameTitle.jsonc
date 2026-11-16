@@ -1,0 +1,91 @@
+{
+  "name": "GameTitle",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string",
+      "enum": [
+        "SEGA",
+        "\u30d0\u30f3\u30c0\u30a4\u30ca\u30e0\u30b3",
+        "\u305d\u306e\u4ed6"
+      ],
+      "enumColors": [
+        "blue",
+        "pink",
+        "gray"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "officialWebsite": {
+      "type": "string"
+    },
+    "networkSupportStatus": {
+      "type": "string",
+      "enum": [
+        "supported",
+        "unverified",
+        "not_supported"
+      ],
+      "enumColors": [
+        "green",
+        "yellow",
+        "gray"
+      ],
+      "default": "unverified"
+    },
+    "supportNote": {
+      "type": "string"
+    },
+    "isMonitored": {
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "high",
+        "normal",
+        "low"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "gray"
+      ],
+      "default": "normal"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "manufacturer"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
